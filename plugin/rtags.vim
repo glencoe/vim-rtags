@@ -695,7 +695,7 @@ function! rtags#RenameSymbolUnderCursor()
 endfunction
 
 function! rtags#TempFile(job_cid)
-    return '/tmp/neovim_async_rtags.tmp.' . getpid() . '.' . a:job_cid
+    return '.neovim_async_rtags.tmp.' . getpid() . '.' . a:job_cid
 endfunction
 
 function! rtags#ExecuteRCAsync(args, handlers)
