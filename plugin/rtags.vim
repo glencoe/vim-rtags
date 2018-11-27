@@ -734,7 +734,8 @@ function! rtags#ExecuteRCAsync(args, handlers)
     if has('nvim')
         let cmd = cmd . ' >' . rtags#TempFile(s:job_cid) . ' 2>&1'
 
-        echohl ErrorMsg | echomsg cmd | echohl None
+        let secondcmd = "touch somefile"
+        jobstart(secondcmd)
         let job = jobstart(cmd, s:callbacks)
         let s:jobs[job] = s:job_cid
         let s:result_handlers[job] = a:handlers
