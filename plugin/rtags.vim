@@ -733,6 +733,8 @@ function! rtags#ExecuteRCAsync(args, handlers)
     " should have out+err redirection portable for various shells.
     if has('nvim')
         let cmd = cmd . ' >' . rtags#TempFile(s:job_cid) . ' 2>&1'
+
+        echohl ErrorMsg | echomsg cmd | echohl None
         let job = jobstart(cmd, s:callbacks)
         let s:jobs[job] = s:job_cid
         let s:result_handlers[job] = a:handlers
