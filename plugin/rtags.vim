@@ -770,7 +770,7 @@ function! rtags#HandleResults(job_id, data, event)
         let output = readfile(temp_file)
         let handlers = remove(s:result_handlers, a:job_id)
         call rtags#ExecuteHandlers(output, handlers)
-        execute 'silent !rm -f ' . temp_file
+        " execute 'silent !rm -f ' . temp_file
     endif
 
 endfunction
